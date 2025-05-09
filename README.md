@@ -8,21 +8,32 @@ This Firefox extension redirects YouTube Shorts URLs to the standard YouTube vid
 - Intercepts clicks on Shorts links and redirects them to the standard player
 - Modifies Shorts links in the YouTube interface to point to the standard player
 
-## Installation
+## Installation for testing
 
 1. Open Firefox and navigate to `about:debugging`
 2. Click "This Firefox"
 3. Click "Load Temporary Add-on..."
 4. Select any file in this extension folder
 
-## How it works
+## Package and install permanently
 
-The extension uses two main approaches:
-1. A background script that detects when a tab navigates to a Shorts URL and redirects it
-2. A content script that intercepts clicks on Shorts links and modifies the DOM to convert Shorts links to regular video links
+Make sure you have the deps:
+```
+npm install --global web-ext
+```
 
-## Permissions
+In your shell have 
+```
+MOZILLA_DEVELOPER=(JWT issuer)
+MOZILLA_DEVELOPER_SECRET=(JWT secret)
+```
 
-- `webRequest`: To monitor web requests to YouTube
-- `tabs`: To redirect tabs when necessary
-- Host permission for `*://www.youtube.com/*`: To operate on YouTube domains only 
+To build an publish unlisted
+```
+./package.sh
+```
+In Firefox, go to `about:addons`
+
+Click the ⚙️ gear icon → Install Add-on From File…
+
+Download the approved version https://addons.mozilla.org/en-US/developers/addons
