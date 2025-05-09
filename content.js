@@ -29,12 +29,26 @@ function modifyShortsLinks() {
   });
 }
 
+// Function to remove Shorts elements from the DOM
+function removeShortsElements() {
+  // Remove ytm-shorts-lockup-view-model-v2 elements
+  const shortsElements = document.querySelectorAll('ytm-shorts-lockup-view-model-v2');
+  if (shortsElements.length > 0) {
+    console.log(`Removing ${shortsElements.length} YouTube Shorts elements`);
+    shortsElements.forEach(element => {
+      element.remove();
+    });
+  }
+}
+
 // Run on page load
 modifyShortsLinks();
+removeShortsElements();
 
 // Run whenever DOM changes
 const observer = new MutationObserver(function() {
   modifyShortsLinks();
+  removeShortsElements();
 });
 
 // Start observing when the DOM is fully loaded

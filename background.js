@@ -7,6 +7,6 @@ browser.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
     const watchUrl = changeInfo.url.replace(/\/shorts\/([^\/\?]+)/, '/watch?v=$1');
     
     // Redirect the tab to the regular watch URL
-    browser.tabs.update(tabId, { url: "https://www.youtube.com" });
+    browser.tabs.update(tabId, { url: watchUrl });
   }
 });
